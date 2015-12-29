@@ -1,5 +1,7 @@
 # project5_Flask_on_Linux
 Ubuntu server : Host Name  : ec2-52-25-151-135.us-west-2.compute.amazonaws.com 
+Catalog application : http://ec2-52-25-151-135.us-west-2.compute.amazonaws.com/catalog 
+ssh port : 2200 
 
 1. Login to server as root 
   * chmod 600 ~/.ssh/udacity_key.rsa
