@@ -29,3 +29,7 @@ Ubuntu server : Host Name  : ec2-52-25-151-135.us-west-2.compute.amazonaws.com
     * Open SSHD config:   $ sudo vim /etc/ssh/sshd_config
     * Get rid of the warning message sudo: unable to resolve host ... when sudo is executed:Source: Ask Ubuntu
     * Open $ vim /etc/hostname; Copy the hostname.; Append the hostname to the first line: $ sudo sudonano /etc/hosts
+6. Configure the Uncomplicated Firewall (UFW) to only allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123) Ref : https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-14-04
+7. Configure the local timezone to UTC  
+    * Ref: Ubuntu documentation: https://help.ubuntu.com/community/UbuntuTime#Using_the_Command_Line_.28terminal.29
+    
