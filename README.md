@@ -39,4 +39,26 @@ Ubuntu server : Host Name  : ec2-52-25-151-135.us-west-2.compute.amazonaws.com
     * Restart the Apache server for mod_wsgi to load:
        * sudo service apache2 restart
        * /etc/init.d/apache2 reload 
+9. Install and configure git
+10. Install & Configure Postgres db  ; add user catalog 
+    * ref : http://killtheyak.com/use-postgresql-with-django-flask/
+    * Install PostgreSQL:  $ sudo apt-get install postgresql postgresql-contrib
+    * Check that no remote connections are allowed (default): $ sudo vim /etc/postgresql/9.3/main/pg_hba.conf
+    * Create needed linux user for psql:   $ sudo adduser catalog (choose a password)\
+    * Change to default user postgres:     $ sudo su - postgres
+    * Connect to the system:     $ psql\
+    * Add postgre user with password:
+      * Create user with LOGIN role and set a password: 
+      * # CREATE USER catalog WITH PASSWORD 'PW-FOR-DB'; (# stands for the command prompt in psql)
+      * Allow the user to create database tables: # ALTER USER catalog_pg CREATEDB;   
+      * # CREATE DATABASE catalog_pg WITH OWNER catalog;   
+      * Connect to the database catalog # \c catalog_pg
+      * Revoke all rights: # REVOKE ALL ON SCHEMA public FROM public;
+      * Grant only access to the catalog role: # GRANT ALL ON SCHEMA public TO catalog_pg; 
+      * list all Databases - /l
+      * list all tables in current db - /dt
+      * Exit out of PostgreSQl and the postgres user:     # \q, then $ exit
+      * Update config file in application to connect to right DB: 
+      * $ sudo vim config.py 
+      * Change the line starting with "engine" to (fill in a password):         SQLALCHEMY_DATABASE_URI ='postgresql://catalog:PW-FOR-DB@localhost/catalog_pg'
     
