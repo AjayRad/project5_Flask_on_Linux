@@ -64,11 +64,21 @@ Ubuntu server : Host Name  : ec2-52-25-151-135.us-west-2.compute.amazonaws.com
 11. Setup for deploying a Flask Application on Ubuntu VPS : 
       * https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
       * http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/
- 12. Clone GitHub repository and make it web inaccessible
+12. Clone GitHub repository and make it web inaccessible
       * Clone project 3.5 solution repository on GitHub:   $ git clone https://github.com/AjayRad/project3.5_catalog_app_v2.git
       * Move all content of created from github to /var/www/catalog/catalog/-directory and delete the leftover empty directory.
       * Make the GitHub repository inaccessible:
       * Ref: Stackoverflow
       * Create and open .htaccess file:$ cd /var/www/catalog/ and $ sudo vim .htaccess
       * Paste in the following: RedirectMatch 404 /\.git
+13. Monitor application using Glances 
+      * Ref: http://glances.readthedocs.org/en/latest/glances-doc.html#introduction
+      * sudo apt-get install glances
+      * sudo apt-get install lm-sensors
+      * sudo apt-get install pysensors
+
+14. Automatic Security upgrades Uuing the "unattended-upgrades" package:
+      * Ref : https://help.ubuntu.com/community/AutomaticSecurityUpdates 
+      * run sudo dpkg-reconfigure --priority=low unattended-upgrades (and update setting to "ye" using the interactive dialog box). 
+      * Check /etc/apt/apt.conf.d/20auto-upgrades to see the updates 
     
