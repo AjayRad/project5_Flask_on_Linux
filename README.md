@@ -22,3 +22,10 @@ Ubuntu server : Host Name  : ec2-52-25-151-135.us-west-2.compute.amazonaws.com
      * Append UseDNS no.
      * Append AllowUsers NEWUSER.
      * Restart SSH Service: # service ssh restart 
+5. Generate a SSH key pair on the local machine:
+    * $ ssh-keygen
+    * Copy the public id to the server: $ ssh-copy-id username@remote_host -p**_PORTNUMBER_**
+    * Login with the new user:     $ ssh -v grader@PUBLIC-IP-ADDRESS -p2200
+    * Open SSHD config:   $ sudo vim /etc/ssh/sshd_config
+    * Get rid of the warning message sudo: unable to resolve host ... when sudo is executed:Source: Ask Ubuntu
+    * Open $ vim /etc/hostname; Copy the hostname.; Append the hostname to the first line: $ sudo sudonano /etc/hosts
