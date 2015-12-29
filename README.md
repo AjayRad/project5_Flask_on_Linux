@@ -32,4 +32,11 @@ Ubuntu server : Host Name  : ec2-52-25-151-135.us-west-2.compute.amazonaws.com
 6. Configure the Uncomplicated Firewall (UFW) to only allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123) Ref : https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-14-04
 7. Configure the local timezone to UTC  
     * Ref: Ubuntu documentation: https://help.ubuntu.com/community/UbuntuTime#Using_the_Command_Line_.28terminal.29
+8. Install and configure Apache to serve a Python mod_wsgi application
+    * Install Apache web server:    $ sudo apt-get install apache2
+    * Open a browser and open the public ip address, should say 'It works!' on the top of the page.
+    * Install mod_wsgi for serving Python apps from Apache and the helper package python-setuptools:     $ sudo apt-get install python-setuptools libapache2-mod-wsgi
+    * Restart the Apache server for mod_wsgi to load:
+       * sudo service apache2 restart
+       * /etc/init.d/apache2 reload 
     
