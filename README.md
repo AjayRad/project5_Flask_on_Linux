@@ -61,4 +61,14 @@ Ubuntu server : Host Name  : ec2-52-25-151-135.us-west-2.compute.amazonaws.com
       * Update config file in application to connect to right DB: 
       * $ sudo vim config.py 
       * Change the line starting with "engine" to (fill in a password):         SQLALCHEMY_DATABASE_URI ='postgresql://catalog:PW-FOR-DB@localhost/catalog_pg'
+11. Setup for deploying a Flask Application on Ubuntu VPS : 
+      * https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
+      * http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/
+ 12. Clone GitHub repository and make it web inaccessible
+      * Clone project 3.5 solution repository on GitHub:   $ git clone https://github.com/AjayRad/project3.5_catalog_app_v2.git
+      * Move all content of created from github to /var/www/catalog/catalog/-directory and delete the leftover empty directory.
+      * Make the GitHub repository inaccessible:
+      * Ref: Stackoverflow
+      * Create and open .htaccess file:$ cd /var/www/catalog/ and $ sudo vim .htaccess
+      * Paste in the following: RedirectMatch 404 /\.git
     
