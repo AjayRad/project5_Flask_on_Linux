@@ -83,4 +83,12 @@
       * Ref : https://help.ubuntu.com/community/AutomaticSecurityUpdates 
       * run sudo dpkg-reconfigure --priority=low unattended-upgrades (and update setting to "ye" using the interactive dialog box). 
       * Check /etc/apt/apt.conf.d/20auto-upgrades to see the updates 
-    
+15. Install Intrusion prevention s/w Fail2Ban to dynamically block clients that fail to authenticate
+      * ref: https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04
+      * Copy the default config file: $ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+      * Update parameters in conf file - 
+       * maxretry = 5 (allow 5 retrries) 
+       * set bantime  = 1800  (bans retry for 1/2 hr on failure)
+       * destemail = YOUREMAIL@domain  
+       * action = %(action_mwl)s (emails whois & log file when auth fails) 
+       * change under [ssh] port = 2220 
